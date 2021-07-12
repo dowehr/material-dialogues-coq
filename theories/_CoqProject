@@ -1,0 +1,49 @@
+-Q . Undecidability.FOLC
+-Q ../coq-library-undecidability/theories/ Undecidability
+-install none
+-arg -w -arg -notation-overridden,-redundant-canonical-projection,-several-object-files,cannot-define-projection,records,unused-intro-pattern,tactics
+COQDOCFLAGS = "--charset utf-8 --parse-comments -s --with-header ../website/resources/header.html --with-footer ../website/resources/footer.html --index indexpage"
+
+axioms.v
+unscoped.v
+
+Terms.v
+Syntax.v
+FOL.v
+ND.v
+
+GenConstructions.v
+Enumeration.v
+GenTarski.v
+Consistency.v
+GenCompleteness.v
+DeMorgan.v
+Stability.v
+WKL.v
+Analysis.v
+
+Kripke.v
+Gentzen.v
+KripkeCompleteness.v
+
+BPCP_FOL.v
+BPCP_CND.v
+Extend.v
+LEnum.v
+Markov.v
+
+FullSyntax.v
+FullFOL.v
+FullND.v
+FullSequent.v
+FullTarski.v
+
+Heyting.v
+Lindenbaum.v
+
+Sorensen.v
+DialogFragment.v
+DialogFull.v
+WFexp.v
+SDialogues.v
+MaterialDialogues.v
