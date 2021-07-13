@@ -25,7 +25,7 @@ We give a small overview, connecting the mechanization with the paper.
    and
    [`win_twin`](https://github.com/dowehr/material-dialogues-coq/blob/main/theories/MaterialDialogues.v#L782)
    (Lemma 19). Quasi-Completeness is concluded in
-   [`mvalid_valid_L`](https://github.com/dowehr/material-dialogues-coq/blob/main/theories/MaterialDialogues.v#L829).
+   [`mvalid_valid_L`](https://github.com/dowehr/material-dialogues-coq/blob/main/theories/MaterialDialogues.v#L829)
  - DeMorgan translation (Lemma 7): The main result (with regards to full
    validity) is in
    [`mvalid_DM`](https://github.com/dowehr/material-dialogues-coq/blob/main/theories/MaterialDialogues.v#L1149).
@@ -51,6 +51,8 @@ all of the technical results which offer much greater room for error.
 You need to use Coq 8.11.2 and install the [Equations Package](http://mattam82.github.io/Coq-Equations/). This is easiest via [opam](https://opam.ocaml.org):
 
 ``` shell
+opam switch create fol 4.07.1+flambda
+eval $(opam env)
 opam repo add coq-released https://coq.inria.fr/opam/released
 opam install coq.8.11.2
 opam install coq-equations.1.2.1+8.11
