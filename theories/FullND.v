@@ -67,8 +67,6 @@ Section ND_def.
     Proof.
       intros H. revert B.
       induction H; intros B HB; try unshelve (solve [econstructor; intuition]); try now econstructor.
-      - eapply AllI; eauto using incl_map.
-      - eapply ExE; eauto using incl_map.
     Qed.
 
     Lemma up_term_term (t : term) xi :

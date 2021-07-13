@@ -78,7 +78,7 @@ Section L_T_unused.
     induction m; intros Hnm.
     - intros [].
     - cbn. intros [ | H ] % in_app_or.
-      + firstorder.
+      + cbn in *. firstorder. apply IHm; trivial. lia.
       + rewrite <- vecs_from_correct in H. intros t Ht. apply L_T_unused_t with m. all: omega + eauto.
   Qed.
 
