@@ -3,7 +3,7 @@
 
 From Equations Require Import Equations.
 Require Import Equations.Prop.DepElim.
-From Undecidability.FOL  Require Export DecidableEnumerable.
+From Undecidability.FOLC Require Export DecidableEnumerable.
 From Undecidability.FOLC Require Export Syntax.
 Require Export Lia.
 Import Vector.
@@ -74,7 +74,7 @@ Section FOL.
     forall phi, P phi.
   Proof.
     intros H0 H1 H2 H3 phi.
-    induction phi using (@size_induction _ size).
+    induction phi using (@size_ind _ size).
     destruct phi; trivial.
     - apply H2; apply H; cbn; lia.
     - apply H3. intros t. apply H.
@@ -106,7 +106,7 @@ Section FOL.
     { n | forall m, n <= m -> unused_L m A }.
   Proof.
     induction A.
-    - exists 0. unfold unused_L. intuition.
+    - exists 0. unfold unused_L. cbn. intuition.
     - destruct IHA. destruct (find_unused a).
       exists (x + x0). intros m Hm. intros phi []; subst.
       + apply u0. omega.
