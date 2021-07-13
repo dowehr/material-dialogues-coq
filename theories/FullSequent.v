@@ -1,6 +1,6 @@
 (** ** Intuitionistic Sequent Calculus *)
 
-From Undecidability.FOLC Require Export FullFOL.
+From FOL Require Export FullFOL.
 
 Section FullSequent.
   Context {Sigma : Signature}.

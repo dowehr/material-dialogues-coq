@@ -1,7 +1,7 @@
-From Undecidability.FOLC Require Export GenConstructions.
-From Undecidability.FOLC Require Export Consistency.
-From Undecidability.FOLC Require Export GenTarski.
-From Undecidability.FOLC Require Import Stability.
+From FOL Require Export GenConstructions.
+From FOL Require Export Consistency.
+From FOL Require Export GenTarski.
+From FOL Require Import Stability.
 
 (** ** Completeness *)
 

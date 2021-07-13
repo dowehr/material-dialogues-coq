@@ -2,8 +2,8 @@
 
 (* *** Tarki Models **)
 
-From Undecidability.FOLC Require Export ND.
-From Undecidability.FOLC Require Export Enumeration.
+From FOL Require Export ND.
+From FOL Require Export Enumeration.
 
 Section Tarski.
   Context {Sigma : Signature}.

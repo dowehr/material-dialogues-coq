@@ -3,8 +3,8 @@
 
 From Equations Require Import Equations.
 Require Import Equations.Prop.DepElim.
-From Undecidability.FOLC Require Export DecidableEnumerable.
-From Undecidability.FOLC Require Export FullSyntax.
+From FOL Require Export DecidableEnumerable.
+From FOL Require Export FullSyntax.
 Require Export Lia.
 Import Vector.
 

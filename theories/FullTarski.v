@@ -1,6 +1,6 @@
 (** ** Definition of Tarski Semantics *)
 
-From Undecidability.FOLC Require Import GenTarski FullFOL.
+From FOL Require Import GenTarski FullFOL.
 
 (* *** Tarki Models **)
 

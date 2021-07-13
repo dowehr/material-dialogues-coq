@@ -1,6 +1,6 @@
 (** ** Natural Deduction for FOL* *)
 
-From Undecidability.FOLC Require Export FOL.
+From FOL Require Export FOL.
 
 Section ND_def.
   Context {Sigma : Signature}.

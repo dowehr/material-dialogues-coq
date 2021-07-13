@@ -1,6 +1,6 @@
 (** ** Enumeration of formulas and ND *)
 
-From Undecidability.FOLC Require Export FOL.
+From FOL Require Export FOL.
 
 (* **** Helper machinery **)
 

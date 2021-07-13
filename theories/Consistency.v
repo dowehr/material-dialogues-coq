@@ -1,6 +1,6 @@
 (** ** Consistency *)
 
-From Undecidability.FOLC Require Export ND.
+From FOL Require Export ND.
 
 Section Consistency.
   Context {Sigma : Signature}.

@@ -2,7 +2,7 @@
 
 (** ** Syntax of FOL* **)
 
-From Undecidability.FOLC Require Export unscoped Terms.
+From FOL Require Export unscoped Terms.
 
 
 

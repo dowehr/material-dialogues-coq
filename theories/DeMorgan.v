@@ -1,4 +1,4 @@
-From Undecidability.FOLC Require Import ND GenTarski GenCompleteness FullND FullTarski.
+From FOL Require Import ND GenTarski GenCompleteness FullND FullTarski.
 
 (** ** De Morgan Translation  *)
 

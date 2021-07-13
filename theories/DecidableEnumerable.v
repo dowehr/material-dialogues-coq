@@ -1,6 +1,6 @@
 (** * Decidability and Enumerability *)
 
-From Undecidability.FOLC Require Export Prelim.
+From FOL Require Export Prelim.
 
 
 (* ** Definitions *)

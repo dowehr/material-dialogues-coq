@@ -2,7 +2,7 @@
 
 (* Version: 19.09. *)
 
-From Undecidability.FOLC Require Export axioms.
+From FOL Require Export axioms.
 
 Notation fin := nat.
 Definition shift  := S.

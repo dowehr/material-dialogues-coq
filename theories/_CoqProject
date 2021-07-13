@@ -1,4 +1,4 @@
--Q . Undecidability.FOLC
+-Q . FOL
 
 -install none
 -arg -w -arg -implicit-core-hint-db,-notation-overridden,-redundant-canonical-projection,-several-object-files,cannot-define-projection,records,unused-intro-pattern,tactics

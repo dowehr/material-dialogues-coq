@@ -1,5 +1,5 @@
-From Undecidability.FOLC Require Import ND.
-From Undecidability.FOLC Require Import GenTarski.
+From FOL Require Import ND.
+From FOL Require Import GenTarski.
 
 (** ** Constructive Analysis *)
 

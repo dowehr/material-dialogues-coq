@@ -1,6 +1,6 @@
 (** ** Natural Deduction for FOL *)
 
-From Undecidability.FOLC Require Export FullFOL.
+From FOL Require Export FullFOL.
 
 Inductive peirce := class | intu.
 Inductive bottom := expl | lconst.

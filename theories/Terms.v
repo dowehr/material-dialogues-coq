@@ -18,7 +18,7 @@ Ltac inv H :=
 
 (** ** Syntax of FOL* **)
 
-From Undecidability.FOLC Require Export unscoped.
+From FOL Require Export unscoped.
 
 Notation vector := Vector.t.
 Import Vector.

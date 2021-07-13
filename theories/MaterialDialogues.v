@@ -1,6 +1,6 @@
 (** ** Material Dialogues * *)
 
-From Undecidability.FOLC Require Import GenTarski FullTarski FullFOL DeMorgan.
+From FOL Require Import GenTarski FullTarski FullFOL DeMorgan.
 
 Section MaterialDialogues.
   Context {Sigma : Signature}.
