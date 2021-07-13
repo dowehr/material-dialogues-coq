@@ -1,12 +1,15 @@
 -Q . Undecidability.FOLC
 
 -install none
--arg -w -arg -notation-overridden,-redundant-canonical-projection,-several-object-files,cannot-define-projection,records,unused-intro-pattern,tactics
+-arg -w -arg -implicit-core-hint-db,-notation-overridden,-redundant-canonical-projection,-several-object-files,cannot-define-projection,records,unused-intro-pattern,tactics
+
 COQDOCFLAGS = "--charset utf-8 --parse-comments -s --with-header ../website/resources/header.html --with-footer ../website/resources/footer.html --index indexpage"
 
 Prelim.v
 DecidableEnumerable.v
 
+axioms.v
+unscoped.v
 Terms.v
 Syntax.v
 FOL.v
