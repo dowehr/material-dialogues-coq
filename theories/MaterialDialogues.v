@@ -194,7 +194,7 @@ Section MaterialDialogues.
   Arguments WS {_ _ _} _ _ _ _.
 
 
-  Definition mvalid A phi := forall domain (I : interp domain) (rho : env domain), msat rho A phi.
+  Definition mvalid A phi := forall domain (I : interp domain) (rho : env domain), standard_bot I -> msat rho A phi.
 
   Section Soundness.
     Inductive kprv G D : Prop :=
@@ -643,7 +643,7 @@ Section MaterialDialogues.
     Theorem mvalid_sound G phi :
       G ⇒ [phi] -> mvalid G phi.
     Proof.
-      intros Hk D I rho a Ha. apply (satisfaction_sound Hk). 2: apply acons_sub.
+      intros Hk D I rho Hstandard a Ha. apply (satisfaction_sound Hk). 2: apply acons_sub.
       intros ? [<- | []]. exists a; repeat split. 1, 2: intuition. unfold acons; now intros ? ->.
     Qed.
   End Soundness.
@@ -779,8 +779,13 @@ Section MaterialDialogues.
         - apply Hsem.
       Qed.
 
+      Definition standardize (S : Signature) (D : Type) (int : @interp S D) : @interp S D.
+      Proof.
+        constructor. exact (@i_f S D int). exact (@i_P S D int). exact False.
+      Defined.
+
       Lemma win_twin p :
-        win p -> twin p.
+        @win domain (standardize I) p -> twin p.
       Proof.
         induction 1. inv H.
         - destruct a; unfold attacks in H3; cbn in H3; subst; intros HA n v alpha Halpha.
@@ -818,7 +823,7 @@ Section MaterialDialogues.
       Qed.
 
       Theorem msat_ssat A phi rho :
-        msat rho A phi -> (forall phi, phi el A -> rho ⊨ phi) -> rho ⊨ phi.
+        @msat _ (standardize I) rho A phi -> (forall phi, phi el A -> rho ⊨ phi) -> rho ⊨ phi.
       Proof.
         intros Hm HA. refine (@twin_defend rho A nil phi _ HA 0 Vector.nil phi _).
         - intros c Hc; now apply win_twin, Hm.
@@ -829,7 +834,7 @@ Section MaterialDialogues.
     Corollary mvalid_valid_L A phi :
       mvalid A phi -> valid_L exp A phi.
     Proof.
-      intros Hm D I [Hexp Hclass] rho. refine (msat_ssat Hexp Hclass _). apply Hm.
+      intros Hm D I [Hexp Hclass] rho. refine (msat_ssat Hexp Hclass _). apply Hm. easy.
     Qed.
   End QuasiCompleteness.
 
@@ -839,6 +844,7 @@ Section MaterialDialogues.
   Section FragmentEquivalence.
     Context {domain : Type}.
     Context {I : interp domain}.
+    Hypothesis (Hsb : standard_bot I).
 
     Lemma Dadm_size a phi psi : a ⩥ phi -> (@Dadm domain psi) ⥼ a -> size psi < size phi.
     Proof.
@@ -1132,7 +1138,7 @@ Section MaterialDialogues.
       2: now rewrite <- app_assoc. refine (IHA _ _ c Hc). intros c' Hc'. rewrite <- app_assoc, acons_append; cbn.
       apply (@win_cut a rho (c' a:: A') (DM a :: A) (c' :: C)). specialize (H c' Hc').
       eapply win_weak; [apply H | unroll_A | reflexivity]. intros c'' Hc''. eapply win_weak.
-      apply (mvalid_sound (DMback a)). exact Hc''. all: unroll_A.
+      apply (mvalid_sound (DMback a)). exact Hsb. exact Hc''. all: unroll_A.
       unfold acons; destruct (admission c'); intuition.
     Qed.
 
@@ -1140,7 +1146,7 @@ Section MaterialDialogues.
       win' (rho, A, C, phi) -> win' (rho, A, C, DM phi).
     Proof.
       intros Hw c Hc. apply (@win_cut phi rho nil (c a:: A) (c :: C)); cbn.
-      - eapply win_weak. apply (mvalid_sound (DMforth phi)). exact Hc.
+      - eapply win_weak. apply (mvalid_sound (DMforth phi)). exact Hsb. exact Hc.
         unfold acons; destruct (admission c). all: intuition.
       - apply (attack_weak Hw); unroll_A.
     Qed.
@@ -1149,6 +1155,6 @@ Section MaterialDialogues.
   Lemma mvalid_DM A phi :
     mvalid A phi -> mvalid (map DM A) (DM phi).
   Proof.
-    intros Hv D I rho. apply win_DM_claim, win_DM_ctx, Hv.
+    intros Hv D I rho Hsb. apply win_DM_claim, win_DM_ctx, Hv. all: easy.
   Qed.
 End MaterialDialogues.
